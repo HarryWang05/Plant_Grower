@@ -1,6 +1,7 @@
-Sunflower hi = new Sunflower(0);
+Sunflower hi = new Sunflower();
 int midX = 300;
 int groundLevel = 500;
+
 void setup() {
   size(600,600);
 }
