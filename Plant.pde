@@ -30,13 +30,13 @@ class Sunflower extends Plant {
     stemLength = time;
     stemThickness = 2+(time/50);
     fill(foilage);
-    rect(300-stemThickness,600,stemThickness*2,-stemLength);
+    rect(midX-stemThickness,groundLevel,stemThickness*2,-stemLength);
     if(time > 300) {
       fill(63, 31, 0);
-      circle(300,600-stemLength,time/2-100);
+      circle(midX,groundLevel-stemLength,time/2-100);
     } else if(time > 200) {
       fill(foilage);
-      circle(300,600-stemLength,time/2-100);
+      circle(midX,groundLevel-stemLength,time/2-100);
     }
     if(dying) {
       time = 800-time;
