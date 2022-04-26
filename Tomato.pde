@@ -1,4 +1,5 @@
 class Tomato extends Plant {
+  ArrayList<Leaf> leaves;
   int stemLength;
   int stemThickness;
   Tomato(String name) {
@@ -6,6 +7,7 @@ class Tomato extends Plant {
     stemLength = 0;
     this.name = name;
     this.dying = false;
+    this.leaves = new ArrayList<Leaf>();
   }
 
   void grow () {

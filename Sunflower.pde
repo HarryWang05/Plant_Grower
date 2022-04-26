@@ -1,4 +1,5 @@
 class Sunflower extends Plant {
+  ArrayList<Leaf> leaves;
   int stemLength;
   int stemThickness;
   Sunflower(String name) {
@@ -9,8 +10,12 @@ class Sunflower extends Plant {
     this.rangeF = 4;
     this.rangeW = 4;
     this.growthFactor = 2.0;
+    this.leaves = new ArrayList<Leaf>();
   }
   void grow() {
+    textSize(128);
+    fill(255);
+    text(name, 40, 120);
     dying = time > 400;
     if(dying) {
       time = 800-time;
