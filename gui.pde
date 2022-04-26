@@ -20,6 +20,7 @@ synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:Windo
 
 public void sunlightChange(GCustomSlider source, GEvent event) { //_CODE_:sunlight:535623:
   println("sunlight - GCustomSlider >> GEvent." + event + " @ " + millis());
+  whichPlant = sunlight.getValueI();
 } //_CODE_:sunlight:535623:
 
 public void waterChange(GCustomSlider source, GEvent event) { //_CODE_:water:226766:

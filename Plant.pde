@@ -16,4 +16,6 @@ class Plant {
     growths += growthFactor * (rangeW - pow((water - sqrt(rangeW)),2.0));
     return growths;
   }
+  void grow() {
+  }
 }
