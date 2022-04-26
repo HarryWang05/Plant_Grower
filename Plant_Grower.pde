@@ -1,4 +1,4 @@
-Sunflower hi = new Sunflower();
+Sunflower hi = new Sunflower("Hi");
 int midX = 300;
 int groundLevel = 500;
 

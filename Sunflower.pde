@@ -1,19 +1,22 @@
 class Sunflower extends Plant {
   int stemLength;
   int stemThickness;
-  Sunflower() {
-    super();
-    stemLength = 0;
-    stemThickness = 5;
+  Sunflower(String name) {
+    super(name);
+    this.name = name;
     this.dying = false;
+    this.rangeS = 4;
+    this.rangeF = 4;
+    this.rangeW = 4;
+    this.growthFactor = 2.0;
   }
   void grow() {
-    dying = this.time > 400;
+    dying = time > 400;
     if(dying) {
       time = 800-time;
-      this.foilage = color(127, 127, 0);
+      foilage = color(127, 127, 0);
     } else {
-      this.foilage = color(127, 255, 0);
+      foilage = color(127, 255, 0);
     }
     stemLength = time;
     stemThickness = 2+(time/50);
