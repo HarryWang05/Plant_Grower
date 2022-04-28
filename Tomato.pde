@@ -1,4 +1,4 @@
-class Tomato extends Plant {
+/*class Tomato extends Plant {
   ArrayList<Leaf> leaves;
   int stemLength;
   int stemThickness;
@@ -35,4 +35,4 @@ class Tomato extends Plant {
     time++;
   }
     
- }
+ }*/
