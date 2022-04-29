@@ -14,9 +14,9 @@
  * =========================================================
  */
 
-synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:Window:296720:
+synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:variableSliders:296720:
   appc.background(230);
-} //_CODE_:Window:296720:
+} //_CODE_:variableSliders:296720:
 
 public void sunlightChange(GCustomSlider source, GEvent event) { //_CODE_:sunlight:535623:
   println("sunlight - GCustomSlider >> GEvent." + event + " @ " + millis());
@@ -31,13 +31,25 @@ public void fertilizerChange(GCustomSlider source, GEvent event) { //_CODE_:fert
   hi.fertilizer = fertilizer.getValueF();
 } //_CODE_:fertilizer:497119:
 
-public void plantChoosingClicked(GDropList source, GEvent event) { //_CODE_:plantChoose:566794:
-  println("plantChoose - GDropList >> GEvent." + event + " @ " + millis());
-} //_CODE_:plantChoose:566794:
-
 public void button1_click1(GButton source, GEvent event) { //_CODE_:addNewPlant:257619:
-  println("addNewPlant - GButton >> GEvent." + event + " @ " + millis());
+  addNewPlantsWindow.setVisible(true);
 } //_CODE_:addNewPlant:257619:
+
+synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:addNewPlantsWindow:484821:
+  appc.background(230);
+} //_CODE_:addNewPlantsWindow:484821:
+
+public void plantNameChanger(GTextField source, GEvent event) { //_CODE_:insertPlantName:271104:
+  println("insertPlantName - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:insertPlantName:271104:
+
+public void addPlantClicked(GButton source, GEvent event) { //_CODE_:addPlantButton:643431:
+  addNewPlantsWindow.setVisible(false);
+} //_CODE_:addPlantButton:643431:
+
+public void plantTypeSelected(GDropList source, GEvent event) { //_CODE_:plantTypeSelect:266769:
+  println("plantTypeSelect - GDropList >> GEvent." + event + " @ " + millis());
+} //_CODE_:plantTypeSelect:266769:
 
 
 
@@ -48,53 +60,68 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  Window = GWindow.getWindow(this, "Window title", 0, 0, 480, 240, JAVA2D);
-  Window.noLoop();
-  Window.setActionOnClose(G4P.KEEP_OPEN);
-  Window.addDrawHandler(this, "win_draw2");
-  sunlight = new GCustomSlider(Window, 15, 20, 213, 40, "grey_blue");
+  variableSliders = GWindow.getWindow(this, "Window title", 0, 0, 480, 160, JAVA2D);
+  variableSliders.noLoop();
+  variableSliders.setActionOnClose(G4P.KEEP_OPEN);
+  variableSliders.addDrawHandler(this, "win_draw2");
+  sunlight = new GCustomSlider(variableSliders, 15, 20, 213, 40, "grey_blue");
   sunlight.setLimits(1.0, 0.0, 5.0);
   sunlight.setNbrTicks(10);
   sunlight.setNumberFormat(G4P.DECIMAL, 0);
   sunlight.setOpaque(false);
   sunlight.addEventHandler(this, "sunlightChange");
-  sunlightLabel = new GLabel(Window, 14, 14, 80, 20);
+  sunlightLabel = new GLabel(variableSliders, 14, 14, 80, 20);
   sunlightLabel.setText("Sunlight");
   sunlightLabel.setOpaque(false);
-  water = new GCustomSlider(Window, 242, 21, 222, 40, "grey_blue");
+  water = new GCustomSlider(variableSliders, 242, 21, 222, 40, "grey_blue");
   water.setLimits(1.0, 0.0, 5.0);
   water.setNbrTicks(5);
   water.setNumberFormat(G4P.DECIMAL, 0);
   water.setOpaque(false);
   water.addEventHandler(this, "waterChange");
-  waterLabel = new GLabel(Window, 244, 13, 80, 20);
+  waterLabel = new GLabel(variableSliders, 244, 13, 80, 20);
   waterLabel.setText("Water");
   waterLabel.setOpaque(false);
-  fertilizer = new GCustomSlider(Window, 14, 92, 215, 40, "grey_blue");
+  fertilizer = new GCustomSlider(variableSliders, 14, 92, 215, 40, "grey_blue");
   fertilizer.setLimits(1.0, 0.0, 5.0);
   fertilizer.setNumberFormat(G4P.DECIMAL, 0);
   fertilizer.setOpaque(false);
   fertilizer.addEventHandler(this, "fertilizerChange");
-  fertilizerLabel = new GLabel(Window, 14, 84, 80, 20);
+  fertilizerLabel = new GLabel(variableSliders, 14, 84, 80, 20);
   fertilizerLabel.setText("Fertilizer");
   fertilizerLabel.setOpaque(false);
-  plantChoose = new GDropList(Window, 243, 98, 220, 145, 4, 10);
-  plantChoose.setItems(loadStrings("list_566794"), 0);
-  plantChoose.addEventHandler(this, "plantChoosingClicked");
-  addNewPlant = new GButton(Window, 16, 158, 112, 35);
+  addNewPlant = new GButton(variableSliders, 245, 93, 214, 35);
   addNewPlant.setText("Add New Plant");
   addNewPlant.addEventHandler(this, "button1_click1");
-  Window.loop();
+  addNewPlantsWindow = GWindow.getWindow(this, "Add New Plant", 0, 0, 600, 100, JAVA2D);
+  addNewPlantsWindow.noLoop();
+  addNewPlantsWindow.setActionOnClose(G4P.KEEP_OPEN);
+  addNewPlantsWindow.addDrawHandler(this, "win_draw1");
+  insertPlantName = new GTextField(addNewPlantsWindow, 15, 19, 223, 30, G4P.SCROLLBARS_NONE);
+  insertPlantName.setText("Plant Name");
+  insertPlantName.setOpaque(true);
+  insertPlantName.addEventHandler(this, "plantNameChanger");
+  addPlantButton = new GButton(addNewPlantsWindow, 484, 22, 80, 30);
+  addPlantButton.setText("Add Plant");
+  addPlantButton.addEventHandler(this, "addPlantClicked");
+  plantTypeSelect = new GDropList(addNewPlantsWindow, 250, 20, 206, 76, 3, 10);
+  plantTypeSelect.setItems(loadStrings("list_266769"), 0);
+  plantTypeSelect.addEventHandler(this, "plantTypeSelected");
+  variableSliders.loop();
+  addNewPlantsWindow.loop();
 }
 
 // Variable declarations 
 // autogenerated do not edit
-GWindow Window;
+GWindow variableSliders;
 GCustomSlider sunlight; 
 GLabel sunlightLabel; 
 GCustomSlider water; 
 GLabel waterLabel; 
 GCustomSlider fertilizer; 
 GLabel fertilizerLabel; 
-GDropList plantChoose; 
 GButton addNewPlant; 
+GWindow addNewPlantsWindow;
+GTextField insertPlantName; 
+GButton addPlantButton; 
+GDropList plantTypeSelect; 
