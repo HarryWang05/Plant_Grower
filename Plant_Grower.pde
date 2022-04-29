@@ -2,6 +2,7 @@ import g4p_controls.*;
 
 ArrayList<Plant> plants = new ArrayList<Plant>();
 Sunflower hi = new Sunflower("Hi");
+hi.sun(sunlight);
 int midX = 300;
 int groundLevel = 500;
 int whichPlant = 0;

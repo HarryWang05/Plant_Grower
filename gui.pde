@@ -20,15 +20,15 @@ synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:Windo
 
 public void sunlightChange(GCustomSlider source, GEvent event) { //_CODE_:sunlight:535623:
   println("sunlight - GCustomSlider >> GEvent." + event + " @ " + millis());
-  whichPlant = sunlight.getValueI();
+  hi.sun = sunlight.getValueF();
 } //_CODE_:sunlight:535623:
 
 public void waterChange(GCustomSlider source, GEvent event) { //_CODE_:water:226766:
-  println("water - GCustomSlider >> GEvent." + event + " @ " + millis());
+  hi.water = water.getValueF();
 } //_CODE_:water:226766:
 
 public void fertilizerChange(GCustomSlider source, GEvent event) { //_CODE_:fertilizer:497119:
-  println("fertilizer - GCustomSlider >> GEvent." + event + " @ " + millis());
+  hi.fertilizer = fertilizer.getValueF();
 } //_CODE_:fertilizer:497119:
 
 public void plantChoosingClicked(GDropList source, GEvent event) { //_CODE_:plantChoose:566794:
@@ -53,26 +53,26 @@ public void createGUI(){
   Window.setActionOnClose(G4P.KEEP_OPEN);
   Window.addDrawHandler(this, "win_draw2");
   sunlight = new GCustomSlider(Window, 15, 20, 213, 40, "grey_blue");
-  sunlight.setLimits(1, 0, 5);
-  sunlight.setNbrTicks(5);
-  sunlight.setNumberFormat(G4P.INTEGER, 0);
+  sunlight.setLimits(1.0, 0.0, 5.0);
+  sunlight.setNbrTicks(10);
+  sunlight.setNumberFormat(G4P.DECIMAL, 0);
   sunlight.setOpaque(false);
   sunlight.addEventHandler(this, "sunlightChange");
   sunlightLabel = new GLabel(Window, 14, 14, 80, 20);
   sunlightLabel.setText("Sunlight");
   sunlightLabel.setOpaque(false);
   water = new GCustomSlider(Window, 242, 21, 222, 40, "grey_blue");
-  water.setLimits(1, 0, 5);
+  water.setLimits(1.0, 0.0, 5.0);
   water.setNbrTicks(5);
-  water.setNumberFormat(G4P.INTEGER, 0);
+  water.setNumberFormat(G4P.DECIMAL, 0);
   water.setOpaque(false);
   water.addEventHandler(this, "waterChange");
   waterLabel = new GLabel(Window, 244, 13, 80, 20);
   waterLabel.setText("Water");
   waterLabel.setOpaque(false);
   fertilizer = new GCustomSlider(Window, 14, 92, 215, 40, "grey_blue");
-  fertilizer.setLimits(1, 0, 5);
-  fertilizer.setNumberFormat(G4P.INTEGER, 0);
+  fertilizer.setLimits(1.0, 0.0, 5.0);
+  fertilizer.setNumberFormat(G4P.DECIMAL, 0);
   fertilizer.setOpaque(false);
   fertilizer.addEventHandler(this, "fertilizerChange");
   fertilizerLabel = new GLabel(Window, 14, 84, 80, 20);
