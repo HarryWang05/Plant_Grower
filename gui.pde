@@ -45,6 +45,7 @@ public void plantNameChanger(GTextField source, GEvent event) { //_CODE_:insertP
 
 public void addPlantClicked(GButton source, GEvent event) { //_CODE_:addPlantButton:643431:
   addNewPlantsWindow.setVisible(false);
+  
 } //_CODE_:addPlantButton:643431:
 
 public void plantTypeSelected(GDropList source, GEvent event) { //_CODE_:plantTypeSelect:266769:
@@ -83,7 +84,7 @@ public void createGUI(){
   waterLabel.setText("Water");
   waterLabel.setOpaque(false);
   fertilizer = new GCustomSlider(variableSliders, 14, 92, 215, 40, "grey_blue");
-  fertilizer.setLimits(1.0, 0.0, 5.0);
+  fertilizer.setLimits(0.0, 0.0, 5.0);
   fertilizer.setNumberFormat(G4P.DECIMAL, 0);
   fertilizer.setOpaque(false);
   fertilizer.addEventHandler(this, "fertilizerChange");
