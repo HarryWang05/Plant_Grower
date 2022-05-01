@@ -1,10 +1,13 @@
 class Plant {
+  ArrayList<Leaf> leaves;
   String name;
   int time;
+  int lifespan;
   float sun, fertilizer, water;
   float rangeS, rangeF, rangeW, growthFactor;
   boolean dying;
   color foilage;
+  color flowerFoilage;
   Plant(String name) {
     this.time = 0;
     this.name = name;
