@@ -23,7 +23,7 @@ class Sunflower extends Plant {
     
     //Plant dying instances 
     if(!dying && time != 0) {
-      if (f > 1){
+      if (f > 1) {
         death();
       }
       /*else if (w < 2 && s > 3){
