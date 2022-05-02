@@ -82,7 +82,7 @@ public void createGUI(){
   variableSliders.setActionOnClose(G4P.KEEP_OPEN);
   variableSliders.addDrawHandler(this, "win_draw2");
   sunlight = new GCustomSlider(variableSliders, 15, 20, 213, 40, "grey_blue");
-  sunlight.setLimits(1.0, 0.0, 5.0);
+  sunlight.setLimits(0.0, 0.0, 5.0);
   sunlight.setNbrTicks(10);
   sunlight.setNumberFormat(G4P.DECIMAL, 0);
   sunlight.setOpaque(false);
@@ -91,7 +91,7 @@ public void createGUI(){
   sunlightLabel.setText("Sunlight");
   sunlightLabel.setOpaque(false);
   water = new GCustomSlider(variableSliders, 242, 21, 222, 40, "grey_blue");
-  water.setLimits(1.0, 0.0, 5.0);
+  water.setLimits(0.0, 0.0, 5.0);
   water.setNbrTicks(5);
   water.setNumberFormat(G4P.DECIMAL, 0);
   water.setOpaque(false);
