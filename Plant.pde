@@ -23,4 +23,6 @@ class Plant {
   }
   void grow() {
   }
+  void death() {
+  }
 }

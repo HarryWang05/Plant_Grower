@@ -22,22 +22,20 @@ class Sunflower extends Plant {
     
     
     //Plant dying instances 
-    if (w > 3 && s < 2){
-      dying = true;
+    if(!dying && time != 0) {
+      if (f > 1){
+        death();
+      }
+      /*else if (w < 2 && s > 3){
+        death();
+      }
+      else if (f > 4 && w < 1 && s < 1){
+        death();
+      }*/
     }
-    else if (w < 2 && s > 3){
-      dying = true;
-    }
-    else if (f > 4 && w < 1 && s < 1){
-      dying = true;
-    }
-    else{
-      dying = false;
-    }
-    
     // Attributes based on dying or not
     if(dying) {
-      time = 800-time;
+      time = lifespan*2-time;
       foilage = color(127, 127, 0);
       flowerFoilage = color(191, 191, 0);
     } else {
@@ -50,6 +48,7 @@ class Sunflower extends Plant {
       leaves.add(new Leaf(600-(leafNum+2)*100,-PI/6,0.5,this));
       leaves.add(new Leaf(600-(leafNum+2)*100,-5*PI/6,0.5,this));
       leafNum++;
+      println(600-(leafNum+2)*100,"newPlant");
     }
     for(int i = 0; i < leaves.size(); i++) {
         leaves.get(i).grow();
@@ -80,11 +79,17 @@ class Sunflower extends Plant {
         //plants.remove(plants.indexOf(this));
         plants[whichPlant] = null;
       }
-      time = 800-time;
+      time = lifespan*2-time;
     }
-    if(time < lifespan || dying){
+    if(time < lifespan){
       exactTime += growth();
+    } else if(dying) {
+      exactTime++;
     }
     time = round(exactTime);
+  }
+  void death() {
+    lifespan = time;
+    dying = true;
   }
 }

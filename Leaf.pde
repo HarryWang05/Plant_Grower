@@ -1,6 +1,7 @@
 class Leaf {
   int leafHeight, leafWidth;
   int time;
+  float exactTime;
   int posY;
   float sizeFactor;
   float angle;
@@ -11,6 +12,7 @@ class Leaf {
     this.angle = angle;
     this.stem = stem;
     this.time = 0;
+    this.exactTime = 0;
   }
   void grow() {
     //Grows at y-position
@@ -32,8 +34,9 @@ class Leaf {
     rotate(angle);
     ellipse(0+leafWidth/2,0,leafWidth,leafHeight);
     popMatrix();
-    if(stem.time < stem.lifespan || stem.dying) {
-      time += stem.growth();
+    if(stem.time < stem.lifespan) {
+      exactTime += stem.growth();
+      time = round(exactTime);
     }
   }
 }
