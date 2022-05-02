@@ -26,8 +26,8 @@ class Button{
     this.isEllipse = false;
     this.start = start;
   }
-  void pack(){
-    fill(106, 76, 3);
+  void pack(int r, int g, int b){
+    fill(r, g, b);
     if (this.isEllipse == true){
     ellipse(this.x1, this.y1, this.diameter, this.diameter);
     
