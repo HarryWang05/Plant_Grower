@@ -10,7 +10,7 @@ class Sunflower extends Plant {
     this.rangeS = 4;
     this.rangeF = 4;
     this.rangeW = 4;
-    this.growthFactor = 2.0;
+    this.growthFactor = 0.5;
     this.leafNum = 0;
     this.leaves = new ArrayList<Leaf>();
   }
@@ -67,6 +67,6 @@ class Sunflower extends Plant {
       }
       time = 800-time;
     }
-    time++;
+    time += growth();
   }
 }

@@ -20,15 +20,15 @@ synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:varia
 
 public void sunlightChange(GCustomSlider source, GEvent event) { //_CODE_:sunlight:535623:
   println("sunlight - GCustomSlider >> GEvent." + event + " @ " + millis());
-  hi.sun = sunlight.getValueF();
+  s = sunlight.getValueF();
 } //_CODE_:sunlight:535623:
 
 public void waterChange(GCustomSlider source, GEvent event) { //_CODE_:water:226766:
-  hi.water = water.getValueF();
+  w = water.getValueF();
 } //_CODE_:water:226766:
 
 public void fertilizerChange(GCustomSlider source, GEvent event) { //_CODE_:fertilizer:497119:
-  hi.fertilizer = fertilizer.getValueF();
+  f = fertilizer.getValueF();
 } //_CODE_:fertilizer:497119:
 
 public void button1_click1(GButton source, GEvent event) { //_CODE_:addNewPlant:257619:

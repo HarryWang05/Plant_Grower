@@ -5,6 +5,7 @@ Sunflower hi = new Sunflower("Hi");
 int midX = 300;
 int groundLevel = 500;
 int whichPlant = 0;
+float s, w, f;
 
 void setup() {
   size(600,600);

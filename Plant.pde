@@ -14,9 +14,9 @@ class Plant {
   }
   float growth() {
     int growths = 0;
-    growths += growthFactor * (rangeS - pow((sun - sqrt(rangeS)),2.0));
-    growths += growthFactor * (rangeF - pow((fertilizer - sqrt(rangeF)),2.0));
-    growths += growthFactor * (rangeW - pow((water - sqrt(rangeW)),2.0));
+    growths += growthFactor * (rangeS - pow((s - sqrt(rangeS)),2.0));
+    growths += growthFactor * (rangeF - pow((f - sqrt(rangeF)),2.0));
+    growths += growthFactor * (rangeW - pow((w - sqrt(rangeW)),2.0));
     return growths;
   }
   void grow() {
