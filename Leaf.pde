@@ -32,6 +32,8 @@ class Leaf {
     rotate(angle);
     ellipse(0+leafWidth/2,0,leafWidth,leafHeight);
     popMatrix();
-    time += stem.growth();
+    if(stem.time < stem.lifespan || stem.dying) {
+      time += stem.growth();
+    }
   }
 }

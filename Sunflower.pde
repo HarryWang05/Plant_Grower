@@ -19,7 +19,21 @@ class Sunflower extends Plant {
     textSize(32);
     fill(255);
     text(name, 40, 60);
-    dying = time > 400;
+    
+    
+    //Plant dying instances 
+    if (w > 3 && s < 2){
+      dying = true;
+    }
+    else if (w < 2 && s > 3){
+      dying = true;
+    }
+    else if (f > 4 && w < 1 && s < 1){
+      dying = true;
+    }
+    else{
+      dying = false;
+    }
     
     // Attributes based on dying or not
     if(dying) {
@@ -38,7 +52,7 @@ class Sunflower extends Plant {
       leafNum++;
     }
     for(int i = 0; i < leaves.size(); i++) {
-      leaves.get(i).grow();
+        leaves.get(i).grow();
     }
     
     // Render stem and flower
@@ -68,7 +82,9 @@ class Sunflower extends Plant {
       }
       time = 800-time;
     }
-    exactTime += growth();
+    if(time < lifespan || dying){
+      exactTime += growth();
+    }
     time = round(exactTime);
   }
 }
