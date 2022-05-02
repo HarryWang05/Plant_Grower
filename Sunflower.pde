@@ -63,7 +63,8 @@ class Sunflower extends Plant {
     }
     if(dying) {
       if(time <= 0) {
-        plants.remove(plants.indexOf(this));
+        //plants.remove(plants.indexOf(this));
+        plants[whichPlant] = null;
       }
       time = 800-time;
     }
