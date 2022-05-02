@@ -6,6 +6,8 @@ int midX = 300;
 int groundLevel = 500;
 int whichPlant = 0;
 float s, w, f;
+boolean p;
+boolean running = true;
 
 void setup() {
   size(600,600);

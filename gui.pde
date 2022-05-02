@@ -37,6 +37,20 @@ public void changeVariablesClicked(GButton source, GEvent event) { //_CODE_:chan
   s = sunlight.getValueF();
 } //_CODE_:changeVariables:941190:
 
+public void pauseClicked(GButton source, GEvent event) { //_CODE_:pause:591619:
+  if(p){
+    p = false;
+    running = true;
+    pause.setText("Pause");
+  }
+  else {
+    p = true;
+    running = false;
+    pause.setText("Unpause");
+  }
+  
+} //_CODE_:pause:591619:
+
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:addNewPlantsWindow:484821:
   appc.background(230);
 } //_CODE_:addNewPlantsWindow:484821:
@@ -63,7 +77,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  variableSliders = GWindow.getWindow(this, "Window title", 0, 0, 480, 160, JAVA2D);
+  variableSliders = GWindow.getWindow(this, "Window title", 0, 0, 480, 200, JAVA2D);
   variableSliders.noLoop();
   variableSliders.setActionOnClose(G4P.KEEP_OPEN);
   variableSliders.addDrawHandler(this, "win_draw2");
@@ -93,12 +107,15 @@ public void createGUI(){
   fertilizerLabel = new GLabel(variableSliders, 14, 84, 80, 20);
   fertilizerLabel.setText("Fertilizer");
   fertilizerLabel.setOpaque(false);
-  addNewPlant = new GButton(variableSliders, 359, 92, 106, 39);
+  addNewPlant = new GButton(variableSliders, 15, 146, 214, 39);
   addNewPlant.setText("Add New Plant");
   addNewPlant.addEventHandler(this, "button1_click1");
   changeVariables = new GButton(variableSliders, 243, 93, 108, 38);
   changeVariables.setText("Save Values");
   changeVariables.addEventHandler(this, "changeVariablesClicked");
+  pause = new GButton(variableSliders, 361, 93, 103, 38);
+  pause.setText("Pause");
+  pause.addEventHandler(this, "pauseClicked");
   addNewPlantsWindow = GWindow.getWindow(this, "Add New Plant", 0, 0, 600, 100, JAVA2D);
   addNewPlantsWindow.noLoop();
   addNewPlantsWindow.setActionOnClose(G4P.KEEP_OPEN);
@@ -128,6 +145,7 @@ GCustomSlider fertilizer;
 GLabel fertilizerLabel; 
 GButton addNewPlant; 
 GButton changeVariables; 
+GButton pause; 
 GWindow addNewPlantsWindow;
 GTextField insertPlantName; 
 GButton addPlantButton; 
