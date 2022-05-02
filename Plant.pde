@@ -2,6 +2,7 @@ class Plant {
   ArrayList<Leaf> leaves;
   String name;
   int time;
+  float exactTime;
   int lifespan;
   float sun, fertilizer, water;
   float rangeS, rangeF, rangeW, growthFactor;
@@ -10,10 +11,11 @@ class Plant {
   color flowerFoilage;
   Plant(String name) {
     this.time = 0;
+    this.exactTime = 0;
     this.name = name;
   }
   float growth() {
-    int growths = 0;
+    float growths = 0;
     growths += growthFactor * (rangeS - pow((s - sqrt(rangeS)),2.0));
     growths += growthFactor * (rangeF - pow((f - sqrt(rangeF)),2.0));
     growths += growthFactor * (rangeW - pow((w - sqrt(rangeW)),2.0));

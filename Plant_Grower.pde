@@ -21,9 +21,11 @@ void setup() {
 }
 
 void draw() {
-  background(0);
   //plants.get(whichPlant).grow();
-  if(plants[whichPlant] != null) {
-    plants[whichPlant].grow();
+  if(running) {
+    background(0);
+    if(plants[whichPlant] != null) {
+      plants[whichPlant].grow();
+    }
   }
 }
