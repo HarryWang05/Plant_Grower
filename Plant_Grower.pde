@@ -1,16 +1,21 @@
 import g4p_controls.*;
-
-JSONObject[] plantTraits = new JSONObject[4];
+Plant[] plants = new Plant[12];
+HashMap<String, JSONObject> plantTraits = new HashMap<String, JSONObject>();
+Plant present;
 PFont font;
 Button[] bArr = new Button[12];
-//ArrayList<Integer>
 Button start;
-int midX = 300;
-int groundLevel = 500;
-int whichPlant = 0;
+boolean plantClick = false;
+int plantIndex = -1;
 boolean begin;
 boolean plantView = false;
+
+
 void setup() {
+  JSONObject sunflower= generateTraits("Sunflower", height/2, 3.0 , 4, 5, 6); // name, max height, growth factor, foliage RGB
+  plantTraits.put("Sunflower", sunflower);
+  JSONObject tomato = generateTraits("Tomato", 3.0, 3.5, 5, 194, 3);
+  plantTraits.put("Tomato", tomato);
   begin = false;
   font = createFont("Inter-Bold.ttf", 50);
   textFont(font);
@@ -49,6 +54,14 @@ int overButtons(Button[] buttonArray){
     }     
   }
   return -1;
+} void pot(){
+     fill(106, 76, 3);
+
+     quad(width/2 - 100, height/2 +25, width/2 +100, height/2 +25, width/2 +50, height/2 + 175, width/2 -50, height/2 + 175);
+      rect(width/2 - 110, height/2, width/2 +110, height/2 + 35);
+      fill(0);
+      rect(0.0, height/2 + 175, 800.0, height);
+
 }
 void mousePressed(){
   if(start.overButton() && start.start){
@@ -58,23 +71,20 @@ void mousePressed(){
   }
   if(begin){
     if(overButtons(bArr) !=-1){
+      plantIndex = overButtons(bArr);
       background(5, 141, 4);
       fill(106, 76, 3);
       plantView = true;
-      quad(width/2 - 100, height/2 +25, width/2 +100, height/2 +25, width/2 +50, height/2 + 175, width/2 -50, height/2 + 175);
-      rect(width/2 - 110, height/2, width/2 +110, height/2 + 35);
-      fill(0);
-      rect(0.0, height/2 + 175, 800.0, height);
+      pot();
       
     }
   }
 
 }
-void bClick(GButton source, GEvent event){
-  if(plantView == true && event == GEvent.CLICKED && source == addNewPlant){
-    
-  }
-}
+
+
 void draw() {
-  
+  if(plantView && plantClick){
+    present.grow();
+  }
 }
