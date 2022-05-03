@@ -9,7 +9,6 @@ float s, w, f;
 boolean p;
 boolean running = true;
 
-Plant present = new Sunflower("hi");
 PFont font;
 Button[] bArr = new Button[12];
 Button start;
@@ -19,6 +18,8 @@ boolean begin;
 boolean plantView = false;
 
 void setup() {
+  font = createFont("Inter-Bold.ttf", 50);
+  textFont(font);
   size(800,700);
   createGUI();
   addNewPlantsWindow.setVisible(false);
@@ -90,7 +91,7 @@ void mousePressed() {
     pots();
     begin = true;
   }
-  if(begin) {
+  if(begin && !plantView) {
     if(overButtons(bArr) !=-1) {
       plantIndex = overButtons(bArr);
       background(5, 141, 4);
