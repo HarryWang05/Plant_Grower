@@ -2,11 +2,13 @@ class Leaf {
   int leafHeight, leafWidth;
   int time;
   float exactTime;
+  int posX;
   int posY;
   float sizeFactor;
   float angle;
   Plant stem;
-  Leaf(int posY, float angle, float sizeFactor, Plant stem) {
+  Leaf(int posX, int posY, float angle, float sizeFactor, Plant stem) {
+    this.posX = posX;
     this.posY = posY;
     this.sizeFactor = sizeFactor;
     this.angle = angle;
@@ -30,7 +32,7 @@ class Leaf {
     }
     fill(stem.foilage);
     pushMatrix();
-    translate(midX,posY);
+    translate(posX,posY);
     rotate(angle);
     ellipse(0+leafWidth/2,0,leafWidth,leafHeight);
     popMatrix();
