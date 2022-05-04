@@ -82,6 +82,8 @@ public void createGUI(){
   variableSliders.setActionOnClose(G4P.KEEP_OPEN);
   variableSliders.addDrawHandler(this, "win_draw2");
   sunlight = new GCustomSlider(variableSliders, 15, 20, 213, 40, "grey_blue");
+  sunlight.setShowValue(true);
+  sunlight.setShowLimits(true);
   sunlight.setLimits(0.0, 0.0, 5.0);
   sunlight.setNbrTicks(10);
   sunlight.setNumberFormat(G4P.DECIMAL, 0);
@@ -90,8 +92,11 @@ public void createGUI(){
   sunlight.addEventHandler(this, "sunlightChange");
   sunlightLabel = new GLabel(variableSliders, 14, 14, 80, 20);
   sunlightLabel.setText("Sunlight");
+  sunlightLabel.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   sunlightLabel.setOpaque(false);
   water = new GCustomSlider(variableSliders, 242, 21, 222, 40, "grey_blue");
+  water.setShowValue(true);
+  water.setShowLimits(true);
   water.setLimits(0.0, 0.0, 5.0);
   water.setNbrTicks(5);
   water.setNumberFormat(G4P.DECIMAL, 0);
@@ -100,8 +105,11 @@ public void createGUI(){
   water.addEventHandler(this, "waterChange");
   waterLabel = new GLabel(variableSliders, 244, 13, 80, 20);
   waterLabel.setText("Water");
+  waterLabel.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   waterLabel.setOpaque(false);
   fertilizer = new GCustomSlider(variableSliders, 14, 92, 215, 40, "grey_blue");
+  fertilizer.setShowValue(true);
+  fertilizer.setShowLimits(true);
   fertilizer.setLimits(0.0, 0.0, 5.0);
   fertilizer.setNumberFormat(G4P.DECIMAL, 0);
   fertilizer.setLocalColorScheme(GCScheme.GREEN_SCHEME);
@@ -109,6 +117,7 @@ public void createGUI(){
   fertilizer.addEventHandler(this, "fertilizerChange");
   fertilizerLabel = new GLabel(variableSliders, 14, 84, 80, 20);
   fertilizerLabel.setText("Fertilizer");
+  fertilizerLabel.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   fertilizerLabel.setOpaque(false);
   addNewPlant = new GButton(variableSliders, 15, 146, 214, 39);
   addNewPlant.setText("Add New Plant");
