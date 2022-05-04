@@ -1,17 +1,17 @@
 class Button{
-  float x1, x2;
+  float x1, x2; // xy coordinated of the buttons
   float y1, y2;
-  float diameter;
+  float diameter; // if the button is a circle
   boolean isEllipse;
   boolean start;
   
-  public Button(float xcord, float ycord, float dia){
+  public Button(float xcord, float ycord, float dia){ // if it is a rectangle
     this.x1 = xcord;
     this.y1 = ycord;
-    this.isEllipse = true;
+    this.isEllipse = true; 
     this.diameter = dia;
   }
-  public Button(float xc1, float yc1, float xc2, float yc2){
+  public Button(float xc1, float yc1, float xc2, float yc2){ // If it is a triangle
     this.x1 = xc1;
     this.x2 = xc2;
     this.y1 = yc1;
@@ -26,7 +26,7 @@ class Button{
     this.isEllipse = false;
     this.start = start;
   }
-  void pack(int r, int g, int b){
+  void pack(int r, int g, int b){ // generate button
     fill(r, g, b);
     if (this.isEllipse == true){
     ellipse(this.x1, this.y1, this.diameter, this.diameter);
@@ -37,15 +37,15 @@ class Button{
     rectMode(CORNER);
     }
   }
-   boolean overButton(){
-     if(this.isEllipse){ // copied from processing docs
+   boolean overButton(){ // if over button
+     if(this.isEllipse){ // copied from processing 
        float disX = this.x1 - mouseX;
        float disY = this.y1 - mouseY;
         if (sqrt(sq(disX) + sq(disY)) < this.diameter/2 ) {
         return true;
        }
       
-     } else {
+     } else { // copied from processing
        if (mouseX >= this.x1 && mouseX <= this.x2 && 
         mouseY >= this.y1 && mouseY <= this.y2) {
         return true;
@@ -54,7 +54,7 @@ class Button{
    }
    return false;
 }
-   void label(String t){
+   void label(String t){ // Make a button label
      fill(0);
      textSize(20);
      if(!this.isEllipse) { 
