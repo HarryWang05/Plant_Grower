@@ -5,13 +5,13 @@ class Button{
   boolean isEllipse;
   boolean start;
   
-  public Button(float xcord, float ycord, float dia){ // if it is a rectangle
+  public Button(float xcord, float ycord, float dia){ // if it is a circle
     this.x1 = xcord;
     this.y1 = ycord;
     this.isEllipse = true; 
     this.diameter = dia;
   }
-  public Button(float xc1, float yc1, float xc2, float yc2){ // If it is a triangle
+  public Button(float xc1, float yc1, float xc2, float yc2){ // If it is a rectangle
     this.x1 = xc1;
     this.x2 = xc2;
     this.y1 = yc1;

@@ -1,12 +1,12 @@
 import g4p_controls.*;
 
-Plant[] plants = new Plant[12];
-int midX;
-int groundLevel = 500;
-float s, w, f;
-boolean p;
-boolean running = true;
-String typeOfPlant,nameOfPlant;
+Plant[] plants = new Plant[12]; // Array of all the plants
+int midX; // Middle x value of screen
+int groundLevel = 500; // y value where plant starts growing
+float s, w, f; // sunlight, water, and fertilizer global variables
+boolean p; // paused
+boolean running = true; // if program should run
+String typeOfPlant,nameOfPlant; // GUI values
 
 PFont font;
 Button[] bArr = new Button[12];
@@ -23,7 +23,7 @@ void setup() {
   textFont(font);
   textSize(50);
   
-  
+  // General
   size(800,700);
   createGUI();
   addNewPlantsWindow.setVisible(false);
@@ -46,11 +46,13 @@ void draw() {
       fill(106, 76, 3);
       pot();
     }
+    // Render exit button
     exit.pack(106, 76, 3);
     exit.label("EXIT");
   }
 }
 
+// Render start menu
 void menu(){
   text("Plant Grower", width/2 -150, height/4);
 
@@ -58,6 +60,8 @@ void menu(){
   start.pack(106, 76, 3);
   start.label("START");
 }
+
+// Render pots and plant indicators
 void pots(){
   addNewPlantsWindow.setVisible(false);
   variableSliders.setVisible(false);
@@ -67,6 +71,7 @@ void pots(){
     Button b = new Button(float((i%6)*125 + padding), (i/6)*125 + 300.0, 100.0); 
     b.pack(106, 76, 3);
     bArr[i] = b;
+    // Render a green circle if there is a plant
     if(plants[i] != null) {
       fill(127, 255, 0);
       circle(float((i%6)*125 + padding),(i/6)*125 + 300.0,50.0);
@@ -75,6 +80,8 @@ void pots(){
   fill(0);
   text("Pick Your Pot", width/2 -60, height/4);
 }
+
+// Return the button the mouse if over
 int overButtons(Button[] buttonArray){
   for(int i = 0; i<buttonArray.length; i++){
     if(buttonArray[i].overButton()){
@@ -83,6 +90,8 @@ int overButtons(Button[] buttonArray){
   }
   return -1;
 }
+
+// Render pot
 void pot() {
     rectMode(CORNERS);
      fill(106, 76, 3);
@@ -94,12 +103,16 @@ void pot() {
     rectMode(CORNER);
 
 }
+
+// For clicking on buttons
 void mousePressed() {
+  // Start button
   if(start.overButton() && start.start) {
     background(5, 141, 4);
     pots();
     begin = true;
   }
+  // Clicked on pot
   if(begin && !plantView) {
     if(overButtons(bArr) !=-1) {
       variableSliders.setVisible(true);
@@ -110,6 +123,7 @@ void mousePressed() {
       pot();
     }
   }
+  // Exit button
   if(plantView && exit.overButton()) {
     plantView = false;
     pots();
