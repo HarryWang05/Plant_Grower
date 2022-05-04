@@ -14,7 +14,7 @@ class Wheat extends Plant {
     this.rangeS = 4;
     this.rangeF = 4;
     this.rangeW = 4;
-    this.growthFactor = 0.2;
+    this.growthFactor = 0.1;
     this.leafNum = 0;
     this.leaves = new ArrayList<Leaf>();
   }
