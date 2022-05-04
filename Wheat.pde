@@ -33,10 +33,10 @@ class Wheat extends Plant {
       if (f > 4 && s < 1 && w < 1){
         death();
       }
-      else if (w < 2 && s > 3){
+      else if (w > 4 && s < 1){
         death();
       }
-      else if (f > 4 && w < 1 && s < 1){
+      else if (s > 4 && w < 1){
         death();
       }
     }

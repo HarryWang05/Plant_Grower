@@ -33,10 +33,10 @@ class Sunflower extends Plant {
       if (f > 4 && s < 1 && w < 1){
         death();
       }
-      else if (w < 1 && s > 3){
+      else if (w > 4 && s < 1){
         death();
       }
-      else if (w > 3 && s < 1){
+      else if (s > 4 && w < 1){
         death();
       }
     }
