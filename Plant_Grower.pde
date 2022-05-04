@@ -32,7 +32,7 @@ void setup() {
   background(5, 141, 4);
   menu();
   midX = width/2;
-  exit = new Button(width-100, 0, width, 100, true);
+  exit = new Button(width-100, 0, width, 100);
 }
 
 void draw() {
