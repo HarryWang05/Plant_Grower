@@ -18,7 +18,7 @@ class Button{
     this.y2 = yc2;
     this.isEllipse = false;
   }
-  public Button(float xc1, float yc1, float xc2, float yc2, boolean start){
+  public Button(float xc1, float yc1, float xc2, float yc2, boolean start){ if it is the start button 
     this.x1 = xc1;
     this.x2 = xc2;
     this.y1 = yc1;
