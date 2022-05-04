@@ -1,7 +1,6 @@
 import g4p_controls.*;
 
 Plant[] plants = new Plant[12];
-Sunflower hi = new Sunflower("Hi");
 int midX;
 int groundLevel = 500;
 int whichPlant = 0;
@@ -36,7 +35,7 @@ void setup() {
   
   // Fill pots with new sunflowers
   for(int i = 0; i < 12; i++) {
-    plants[i] = new Sunflower("sunflower"+i);
+    plants[i] = new Sunflower("sunflower"+(i+1));
   }
 }
 
