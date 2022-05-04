@@ -52,10 +52,10 @@ class Wheat extends Plant {
     }
     
     // Render and create new leaves
-    if(stemLength > (leafNum+1)*100) {
-      leaves.add(new Leaf(midX,groundLevel-(leafNum+1)*100,-2*PI/6,0.5,this));
-      leaves.add(new Leaf(midX,groundLevel-(leafNum+1)*100,-5*PI/6,0.5,this));
-      leaves.add(new Leaf(midX,groundLevel-(leafNum+1)*100,-6*PI/6,0.5,this));
+    if(stemLength > (leafNum+1)*50) {
+      leaves.add(new Leaf(midX,groundLevel-(leafNum+1)*50,-2*PI/6,0.3,this));
+      leaves.add(new Leaf(midX,groundLevel-(leafNum+1)*50,-5*PI/6,0.3,this));
+      leaves.add(new Leaf(midX,groundLevel-(leafNum+1)*50,-6*PI/6,0.3,this));
       leafNum++;
     }
     for(int i = 0; i < leaves.size(); i++) {
