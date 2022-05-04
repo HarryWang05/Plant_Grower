@@ -57,11 +57,11 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:addNe
 
 public void plantNameChanger(GTextField source, GEvent event) { //_CODE_:insertPlantName:271104:
   println("insertPlantName - GTextField >> GEvent." + event + " @ " + millis());
-  nameOfPlant = insertPlantName.getText();
 } //_CODE_:insertPlantName:271104:
 
 public void addPlantClicked(GButton source, GEvent event) { //_CODE_:addPlantButton:643431:
   typeOfPlant = plantTypeSelect.getSelectedText();
+  nameOfPlant = insertPlantName.getText();
   if(typeOfPlant.equals("Sunflower")) {
     plants[plantIndex] = new Sunflower(nameOfPlant);
   } else if(typeOfPlant.equals("Wheat Plant")) {
