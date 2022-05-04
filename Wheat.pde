@@ -33,30 +33,9 @@ class Wheat extends Plant {
  
     
     
-    
-    
   }
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+   
 }
