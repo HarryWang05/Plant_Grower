@@ -18,24 +18,29 @@ boolean begin;
 boolean plantView = false;
 
 void setup() {
+  
+  // Set text settings
   font = createFont("Inter-Bold.ttf", 50);
   textFont(font);
+  textSize(50);
+  
+  
   size(800,700);
   createGUI();
   addNewPlantsWindow.setVisible(false);
-  
   begin = false;
   background(5, 141, 4);
   menu();
-  textSize(50);
   midX = width/2;
-
+  
+  // Fill pots with new sunflowers
   for(int i = 0; i < 12; i++) {
     plants[i] = new Sunflower("sunflower"+i);
   }
 }
 
 void draw() {
+  // If viewing a plant and not paused, call grow() for current plant
   if(plantView){
     if(running) {
       background(5, 141, 4);

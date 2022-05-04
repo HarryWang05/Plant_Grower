@@ -1,4 +1,6 @@
 class Plant {
+  
+  // Fields
   ArrayList<Leaf> leaves;
   String name;
   int time;
@@ -7,13 +9,17 @@ class Plant {
   float sun, fertilizer, water;
   float rangeS, rangeF, rangeW, growthFactor;
   boolean dying;
-  color foilage;
-  color flowerFoilage;
+  color foliage;
+  color flowerFoliage;
+  
+  // Constructor
   Plant(String name) {
     this.time = 0;
     this.exactTime = 0;
     this.name = name;
   }
+  
+  // Determines growth based on sunlight, water, and fertilizer, and the plant's needs
   float growth() {
     float growths = 0;
     growths += growthFactor * (rangeS - pow((s - sqrt(rangeS)),2.0));
@@ -24,6 +30,8 @@ class Plant {
     }
     return growths;
   }
+  
+  // Emtpy methods to be used by classes that extend Plant
   void grow() {
   }
   void death() {

@@ -14,19 +14,19 @@ class Tomato extends Plant {
     dying = this.time > 200;
     if(dying) {
       time = 800-time;
-      this.foilage = color(124,252,0);
+      this.foliage = color(124,252,0);
     } else {
-      this.foilage = color(255, 99, 71);
+      this.foliage = color(255, 99, 71);
     }
     stemLength = time;
     stemThickness = 2+(time/50);
-    fill(foilage);
+    fill(foliage);
     rect(midX-stemThickness,groundLevel,stemThickness*2,-stemLength);
     if(time > 300) {
       fill(255, 0, 0);
       circle(midX,groundLevel-stemLength,time/2-100);
     } else if(time > 200) {
-      fill(foilage);
+      fill(foliage);
       circle(midX,groundLevel-stemLength,time/2-100);
     }
     if(dying) {

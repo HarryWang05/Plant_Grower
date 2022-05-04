@@ -1,7 +1,11 @@
 class Sunflower extends Plant {
+  
+  // Fields
   int stemLength;
   int stemThickness;
   int leafNum;
+  
+  // Constructor
   Sunflower(String name) {
     super(name);
     this.name = name;
@@ -14,14 +18,17 @@ class Sunflower extends Plant {
     this.leafNum = 0;
     this.leaves = new ArrayList<Leaf>();
   }
+  
+  // Render and grow plant
   void grow() {
-    //Name of plant
+    
+    // Name of plant
     textSize(32);
     fill(255);
     text(name, 40, 60);
     
     
-    //Plant dying instances 
+    // Plant dying instances 
     if(!dying && time != 0) {
       if (f > 4 && s < 1 && w < 1){
         death();
@@ -33,14 +40,15 @@ class Sunflower extends Plant {
         death();
       }
     }
+    
     // Attributes based on dying or not
     if(dying) {
       time = lifespan*2-time;
-      foilage = color(127, 127, 0);
-      flowerFoilage = color(191, 191, 0);
+      foliage = color(127, 127, 0);
+      flowerFoliage = color(191, 191, 0);
     } else {
-      foilage = color(127, 255, 0);
-      flowerFoilage = color(255, 255, 0);
+      foliage = color(127, 255, 0);
+      flowerFoliage = color(255, 255, 0);
     }
     
     // Render and create new leaves
@@ -57,10 +65,10 @@ class Sunflower extends Plant {
     // Render stem and flower
     stemLength = time;
     stemThickness = 2+(time/50);
-    fill(foilage);
+    fill(foliage);
     rect(midX-stemThickness,groundLevel,stemThickness*2,-stemLength);
     if(time > 300) {
-      fill(flowerFoilage);
+      fill(flowerFoliage);
       pushMatrix();
       translate(midX,groundLevel-stemLength);
       for(int i = 0; i < 16; i++) {
@@ -71,9 +79,11 @@ class Sunflower extends Plant {
       fill(63, 31, 0);
       circle(midX,groundLevel-stemLength,time/2-100);
     } else if(time > 200) {
-      fill(foilage);
+      fill(foliage);
       circle(midX,groundLevel-stemLength,time/2-100);
     }
+    
+    // Check to see if plant has ceased to exist
     if(dying) {
       if(time <= 0) {
         //plants.remove(plants.indexOf(this));
@@ -81,13 +91,19 @@ class Sunflower extends Plant {
       }
       time = lifespan*2-time;
     }
+    
+    // Only grow based on environment if living
     if(time < lifespan){
       exactTime += growth();
     } else if(dying) {
       exactTime++;
     }
+    
+    // exactTime is used to keep a more percise value of time, in case values less than 1 are added
     time = round(exactTime);
   }
+  
+  // Called when the plant starts dying
   void death() {
     lifespan = time;
     dying = true;
