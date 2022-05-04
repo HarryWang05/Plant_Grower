@@ -28,6 +28,7 @@ void setup() {
   size(800,700);
   createGUI();
   addNewPlantsWindow.setVisible(false);
+  variableSliders.setVisible(false);
   begin = false;
   background(5, 141, 4);
   menu();
@@ -98,6 +99,7 @@ void mousePressed() {
   }
   if(begin && !plantView) {
     if(overButtons(bArr) !=-1) {
+      variableSliders.setVisible(true);
       plantIndex = overButtons(bArr);
       background(5, 141, 4);
       fill(106, 76, 3);

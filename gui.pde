@@ -85,6 +85,7 @@ public void createGUI(){
   sunlight.setLimits(0.0, 0.0, 5.0);
   sunlight.setNbrTicks(10);
   sunlight.setNumberFormat(G4P.DECIMAL, 0);
+  sunlight.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   sunlight.setOpaque(false);
   sunlight.addEventHandler(this, "sunlightChange");
   sunlightLabel = new GLabel(variableSliders, 14, 14, 80, 20);
@@ -94,6 +95,7 @@ public void createGUI(){
   water.setLimits(0.0, 0.0, 5.0);
   water.setNbrTicks(5);
   water.setNumberFormat(G4P.DECIMAL, 0);
+  water.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   water.setOpaque(false);
   water.addEventHandler(this, "waterChange");
   waterLabel = new GLabel(variableSliders, 244, 13, 80, 20);
@@ -102,6 +104,7 @@ public void createGUI(){
   fertilizer = new GCustomSlider(variableSliders, 14, 92, 215, 40, "grey_blue");
   fertilizer.setLimits(0.0, 0.0, 5.0);
   fertilizer.setNumberFormat(G4P.DECIMAL, 0);
+  fertilizer.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   fertilizer.setOpaque(false);
   fertilizer.addEventHandler(this, "fertilizerChange");
   fertilizerLabel = new GLabel(variableSliders, 14, 84, 80, 20);
@@ -109,12 +112,15 @@ public void createGUI(){
   fertilizerLabel.setOpaque(false);
   addNewPlant = new GButton(variableSliders, 15, 146, 214, 39);
   addNewPlant.setText("Add New Plant");
+  addNewPlant.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   addNewPlant.addEventHandler(this, "button1_click1");
   changeVariables = new GButton(variableSliders, 243, 93, 108, 38);
   changeVariables.setText("Save Values");
+  changeVariables.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   changeVariables.addEventHandler(this, "changeVariablesClicked");
   pause = new GButton(variableSliders, 361, 93, 103, 38);
   pause.setText("Pause");
+  pause.setLocalColorScheme(GCScheme.RED_SCHEME);
   pause.addEventHandler(this, "pauseClicked");
   addNewPlantsWindow = GWindow.getWindow(this, "Add New Plant", 0, 0, 600, 100, JAVA2D);
   addNewPlantsWindow.noLoop();
