@@ -56,7 +56,6 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:addNe
 } //_CODE_:addNewPlantsWindow:484821:
 
 public void plantNameChanger(GTextField source, GEvent event) { //_CODE_:insertPlantName:271104:
-  println("insertPlantName - GTextField >> GEvent." + event + " @ " + millis());
 } //_CODE_:insertPlantName:271104:
 
 public void addPlantClicked(GButton source, GEvent event) { //_CODE_:addPlantButton:643431:
@@ -65,7 +64,6 @@ public void addPlantClicked(GButton source, GEvent event) { //_CODE_:addPlantBut
 } //_CODE_:addPlantButton:643431:
 
 public void plantTypeSelected(GDropList source, GEvent event) { //_CODE_:plantTypeSelect:266769:
-  println("plantTypeSelect - GDropList >> GEvent." + event + " @ " + millis());
 } //_CODE_:plantTypeSelect:266769:
 
 
@@ -137,13 +135,16 @@ public void createGUI(){
   addNewPlantsWindow.addDrawHandler(this, "win_draw1");
   insertPlantName = new GTextField(addNewPlantsWindow, 15, 19, 223, 30, G4P.SCROLLBARS_NONE);
   insertPlantName.setText("Plant Name");
+  insertPlantName.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   insertPlantName.setOpaque(true);
   insertPlantName.addEventHandler(this, "plantNameChanger");
-  addPlantButton = new GButton(addNewPlantsWindow, 484, 22, 80, 30);
+  addPlantButton = new GButton(addNewPlantsWindow, 474, 20, 103, 30);
   addPlantButton.setText("Add Plant");
+  addPlantButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   addPlantButton.addEventHandler(this, "addPlantClicked");
-  plantTypeSelect = new GDropList(addNewPlantsWindow, 250, 20, 206, 76, 3, 10);
+  plantTypeSelect = new GDropList(addNewPlantsWindow, 250, 18, 206, 76, 3, 10);
   plantTypeSelect.setItems(loadStrings("list_266769"), 0);
+  plantTypeSelect.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   plantTypeSelect.addEventHandler(this, "plantTypeSelected");
   variableSliders.loop();
   addNewPlantsWindow.loop();
