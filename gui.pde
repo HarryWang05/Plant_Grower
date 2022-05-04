@@ -81,7 +81,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  variableSliders = GWindow.getWindow(this, "Window title", 0, 0, 480, 200, JAVA2D);
+  variableSliders = GWindow.getWindow(this, "Control Window", 0, 0, 480, 200, JAVA2D);
   variableSliders.noLoop();
   variableSliders.setActionOnClose(G4P.KEEP_OPEN);
   variableSliders.addDrawHandler(this, "win_draw2");
@@ -135,7 +135,7 @@ public void createGUI(){
   pause.setText("Pause");
   pause.setLocalColorScheme(GCScheme.RED_SCHEME);
   pause.addEventHandler(this, "pauseClicked");
-  addNewPlantsWindow = GWindow.getWindow(this, "Add New Plant", 0, 0, 600, 120, JAVA2D);
+  addNewPlantsWindow = GWindow.getWindow(this, "Add New Plant Window", 0, 0, 600, 120, JAVA2D);
   addNewPlantsWindow.noLoop();
   addNewPlantsWindow.setActionOnClose(G4P.KEEP_OPEN);
   addNewPlantsWindow.addDrawHandler(this, "win_draw1");
