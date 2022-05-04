@@ -56,14 +56,22 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:addNe
 } //_CODE_:addNewPlantsWindow:484821:
 
 public void plantNameChanger(GTextField source, GEvent event) { //_CODE_:insertPlantName:271104:
+  println("insertPlantName - GTextField >> GEvent." + event + " @ " + millis());
+  nameOfPlant = insertPlantName.getText();
 } //_CODE_:insertPlantName:271104:
 
 public void addPlantClicked(GButton source, GEvent event) { //_CODE_:addPlantButton:643431:
+  typeOfPlant = plantTypeSelect.getSelectedText();
+  if(typeOfPlant.equals("Sunflower")) {
+    plants[plantIndex] = new Sunflower(nameOfPlant);
+  } else if(typeOfPlant.equals("Wheat Plant")) {
+    plants[plantIndex] = new Wheat(nameOfPlant);
+  }
   addNewPlantsWindow.setVisible(false);
-  
 } //_CODE_:addPlantButton:643431:
 
 public void plantTypeSelected(GDropList source, GEvent event) { //_CODE_:plantTypeSelect:266769:
+  println("plantTypeSelect - GDropList >> GEvent." + event + " @ " + millis());
 } //_CODE_:plantTypeSelect:266769:
 
 

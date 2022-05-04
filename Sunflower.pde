@@ -56,7 +56,6 @@ class Sunflower extends Plant {
       leaves.add(new Leaf(midX,groundLevel-(leafNum+1)*100,-PI/6,0.5,this));
       leaves.add(new Leaf(midX,groundLevel-(leafNum+1)*100,-5*PI/6,0.5,this));
       leafNum++;
-      println(600-(leafNum+2)*100,"newPlant");
     }
     for(int i = 0; i < leaves.size(); i++) {
         leaves.get(i).grow();

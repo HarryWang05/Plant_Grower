@@ -7,6 +7,7 @@ int whichPlant = 0;
 float s, w, f;
 boolean p;
 boolean running = true;
+String typeOfPlant,nameOfPlant;
 
 PFont font;
 Button[] bArr = new Button[12];
@@ -32,11 +33,6 @@ void setup() {
   background(5, 141, 4);
   menu();
   midX = width/2;
-  
-  // Fill pots with new sunflowers
-  for(int i = 0; i < 12; i++) {
-    plants[i] = new Sunflower("sunflower"+(i+1));
-  }
 }
 
 void draw() {
