@@ -3,7 +3,6 @@ import g4p_controls.*;
 Plant[] plants = new Plant[12];
 int midX;
 int groundLevel = 500;
-int whichPlant = 0;
 float s, w, f;
 boolean p;
 boolean running = true;
@@ -11,7 +10,7 @@ String typeOfPlant,nameOfPlant;
 
 PFont font;
 Button[] bArr = new Button[12];
-Button start;
+Button start, exit;
 boolean plantClick = false;
 int plantIndex = -1;
 boolean begin;
@@ -33,6 +32,7 @@ void setup() {
   background(5, 141, 4);
   menu();
   midX = width/2;
+  exit = new Button(width-100, 0, width, 100, true);
 }
 
 void draw() {
@@ -46,6 +46,8 @@ void draw() {
       fill(106, 76, 3);
       pot();
     }
+    exit.pack(106, 76, 3);
+    exit.label("EXIT");
   }
 }
 
@@ -57,15 +59,21 @@ void menu(){
   start.label("START");
 }
 void pots(){
-  int padding = 100;
+  addNewPlantsWindow.setVisible(false);
+  variableSliders.setVisible(false);
+  background(5, 141, 4);
+  int padding = 90;
   for(int i =0; i < 12; i++){
-  Button b = new Button(float((i%6)*125 + padding), (i/6)*125 + 300.0, 100.0); 
-  b.pack(106, 76, 3);
-  bArr[i] = b;
-  
+    Button b = new Button(float((i%6)*125 + padding), (i/6)*125 + 300.0, 100.0); 
+    b.pack(106, 76, 3);
+    bArr[i] = b;
+    if(plants[i] != null) {
+      fill(127, 255, 0);
+      circle(float((i%6)*125 + padding),(i/6)*125 + 300.0,50.0);
+    }
   }
   fill(0);
-  text("Pick Your Pot", width/2 -150, height/4);
+  text("Pick Your Pot", width/2 -60, height/4);
 }
 int overButtons(Button[] buttonArray){
   for(int i = 0; i<buttonArray.length; i++){
@@ -100,8 +108,11 @@ void mousePressed() {
       fill(106, 76, 3);
       plantView = true;
       pot();
-      
     }
+  }
+  if(plantView && exit.overButton()) {
+    plantView = false;
+    pots();
   }
 
 }

@@ -72,7 +72,7 @@ class Wheat extends Plant {
     if(dying) {
       if(time <= 0) {
         //plants.remove(plants.indexOf(this));
-        plants[whichPlant] = null;
+        plants[plantIndex] = null;
       }
       time = lifespan*2-time;
     }
