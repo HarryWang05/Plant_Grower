@@ -129,7 +129,7 @@ public void createGUI(){
   pause.setText("Pause");
   pause.setLocalColorScheme(GCScheme.RED_SCHEME);
   pause.addEventHandler(this, "pauseClicked");
-  addNewPlantsWindow = GWindow.getWindow(this, "Add New Plant", 0, 0, 600, 100, JAVA2D);
+  addNewPlantsWindow = GWindow.getWindow(this, "Add New Plant", 0, 0, 600, 120, JAVA2D);
   addNewPlantsWindow.noLoop();
   addNewPlantsWindow.setActionOnClose(G4P.KEEP_OPEN);
   addNewPlantsWindow.addDrawHandler(this, "win_draw1");
@@ -142,7 +142,7 @@ public void createGUI(){
   addPlantButton.setText("Add Plant");
   addPlantButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   addPlantButton.addEventHandler(this, "addPlantClicked");
-  plantTypeSelect = new GDropList(addNewPlantsWindow, 250, 18, 206, 76, 3, 10);
+  plantTypeSelect = new GDropList(addNewPlantsWindow, 250, 18, 206, 95, 4, 10);
   plantTypeSelect.setItems(loadStrings("list_266769"), 0);
   plantTypeSelect.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   plantTypeSelect.addEventHandler(this, "plantTypeSelected");
